@@ -2,10 +2,903 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=privacy/">
-  <title>Vinora Legal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinora — Your Pocket Sommelier</title>
+  <meta name="description" content="Scan any wine menu. Understand every bottle. Build your palate. Vinora is the Duolingo of wine.">
+  <meta name="theme-color" content="#3B0764">
+  <meta property="og:title" content="Vinora — Your Pocket Sommelier">
+  <meta property="og:description" content="Scan wine menus, learn about wine, and never order blind again.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vinora.app">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #FFFBF5;
+      --brown: #2D1F14;
+      --brown-light: #8B7A69;
+      --gold: #C5A55A;
+      --gold-dark: #8B7A3E;
+      --card: #FFFFFF;
+      --border: #F0EBE3;
+      --purple-deep: #3B0764;
+      --purple: #7C3AED;
+      --purple-light: #A78BFA;
+      --red-wine: #6B1A2A;
+      --sweetness: #E91E63;
+      --acidity: #FFB300;
+      --fruit: #EF5350;
+      --body-ring: #7E57C2;
+      --match-green: #4CAF72;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,251,245,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 1.4rem; font-weight: 900; color: var(--brown); letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 700; color: var(--brown-light);
+      text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--brown); }
+    .lang-btn {
+      background: var(--border); border: none; border-radius: 20px;
+      padding: 6px 14px; font-size: 0.8rem; font-weight: 800;
+      color: var(--brown-light); cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { background: var(--gold); color: var(--cream); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -40%; right: -20%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -30%; left: -15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(197,165,90,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 620px; text-align: center; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple-deep), var(--purple));
+      color: white; font-size: 0.75rem; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 900; line-height: 1.05;
+      color: var(--brown);
+      margin-bottom: 20px;
+    }
+    .hero h1 .accent { color: var(--purple); }
+    .hero .subtitle {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--brown-light); font-weight: 600;
+      max-width: 480px; margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .hero .cta-row {
+      display: flex; gap: 16px; justify-content: center; align-items: center;
+      flex-wrap: wrap;
+    }
+    .cta-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--brown); color: var(--cream);
+      padding: 14px 28px; border-radius: 14px;
+      text-decoration: none; font-weight: 800; font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(45,31,20,0.15);
+    }
+    .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45,31,20,0.2); }
+    .cta-primary svg { width: 22px; height: 22px; }
+    .cta-secondary {
+      font-size: 0.9rem; font-weight: 700; color: var(--brown-light);
+      text-decoration: none; padding: 14px 20px;
+      transition: color 0.2s;
+    }
+    .cta-secondary:hover { color: var(--purple); }
+
+    /* ── Scroll indicator ── */
+    .scroll-hint {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: var(--brown-light); opacity: 0.4;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Section base ── */
+    section { padding: 100px 24px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900; line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem; color: var(--brown-light);
+      font-weight: 600; max-width: 560px; line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    /* ── Problem/Solution ── */
+    .problem {
+      background: var(--brown);
+      color: var(--cream);
+      text-align: center;
+      border-radius: 0;
+    }
+    .problem .section-label { color: var(--gold); }
+    .problem .section-title { color: var(--cream); }
+    .problem .section-subtitle { color: rgba(255,251,245,0.7); margin: 0 auto 48px; }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .problem-card {
+      background: rgba(255,251,245,0.06);
+      border: 1px solid rgba(255,251,245,0.1);
+      border-radius: 18px; padding: 28px;
+      text-align: left;
+    }
+    .problem-card .emoji { font-size: 2rem; margin-bottom: 12px; }
+    .problem-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--cream); }
+    .problem-card p { font-size: 0.92rem; color: rgba(255,251,245,0.6); font-weight: 600; line-height: 1.5; }
+
+    /* ── Features ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(45,31,20,0.08);
+    }
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 20px;
+    }
+    .feature-icon.scan { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); }
+    .feature-icon.taste { background: linear-gradient(135deg, #EDE9FE, #D1C4E9); }
+    .feature-icon.learn { background: linear-gradient(135deg, #FFF8E1, #FFE082); }
+    .feature-icon.diary { background: linear-gradient(135deg, #F1F8E9, #DCEDC8); }
+    .feature-icon.dna { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+    .feature-icon.daily { background: linear-gradient(135deg, #FBE9E7, #FFCCBC); }
+    .feature-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.92rem; color: var(--brown-light); font-weight: 600; line-height: 1.55; }
+
+    /* ── Taste Rings Demo ── */
+    .rings-section { text-align: center; }
+    .rings-demo {
+      display: flex; justify-content: center; gap: 32px;
+      flex-wrap: wrap; margin-top: 48px;
+    }
+    .ring-item { text-align: center; }
+    .ring-svg { width: 100px; height: 100px; }
+    .ring-svg circle {
+      fill: none; stroke-width: 8; stroke-linecap: round;
+      transform: rotate(-90deg); transform-origin: 50% 50%;
+      transition: stroke-dashoffset 1.5s ease;
+    }
+    .ring-label { font-size: 0.82rem; font-weight: 800; margin-top: 8px; letter-spacing: 0.03em; }
+    .ring-label.sweetness { color: var(--sweetness); }
+    .ring-label.acidity { color: var(--acidity); }
+    .ring-label.fruit { color: var(--fruit); }
+    .ring-label.body-l { color: var(--body-ring); }
+
+    /* ── Vendimia ── */
+    .vendimia {
+      background: linear-gradient(135deg, var(--purple-deep), #1a0033);
+      color: white;
+    }
+    .vendimia .section-label { color: var(--purple-light); }
+    .vendimia .section-title { color: white; }
+    .vendimia .section-subtitle { color: rgba(255,255,255,0.6); }
+    .chapters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .chapter-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 24px 20px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .chapter-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-3px);
+    }
+    .chapter-num {
+      font-size: 0.7rem; font-weight: 900;
+      color: var(--purple-light); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .chapter-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+    .chapter-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 600; }
+
+    /* ── Personalities ── */
+    .personalities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .personality-card {
+      text-align: center;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px 16px;
+      transition: transform 0.3s;
+    }
+    .personality-card:hover { transform: translateY(-4px); }
+    .personality-emoji { font-size: 2.4rem; margin-bottom: 12px; }
+    .personality-card h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 4px; }
+    .personality-card p { font-size: 0.8rem; color: var(--brown-light); font-weight: 600; }
+
+    /* ── Pricing ── */
+    .pricing { text-align: center; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px; max-width: 780px; margin: 0 auto;
+    }
+    .price-card {
+      background: var(--card); border: 2px solid var(--border);
+      border-radius: 20px; padding: 32px 24px;
+      transition: all 0.3s; position: relative;
+    }
+    .price-card.featured {
+      border-color: var(--purple);
+      box-shadow: 0 8px 40px rgba(124,58,237,0.15);
+      transform: scale(1.04);
+    }
+    .price-card.featured::after {
+      content: attr(data-badge);
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--purple); color: white;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px; border-radius: 20px;
+    }
+    .price-name { font-size: 0.85rem; font-weight: 800; color: var(--brown-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .price-amount { font-size: 2.4rem; font-weight: 900; color: var(--brown); }
+    .price-amount span { font-size: 0.9rem; font-weight: 700; color: var(--brown-light); }
+    .price-note { font-size: 0.82rem; color: var(--brown-light); font-weight: 600; margin-top: 6px; }
+    .price-save { color: var(--match-green); font-weight: 800; font-size: 0.8rem; margin-top: 4px; }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      text-align: center;
+      background: linear-gradient(135deg, var(--purple-deep) 0%, var(--red-wine) 100%);
+      color: white;
+      padding: 120px 24px;
+    }
+    .final-cta .section-title { color: white; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px; }
+    .final-cta p { color: rgba(255,255,255,0.7); font-size: 1.1rem; font-weight: 600; margin-bottom: 36px; }
+    .cta-white {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; color: var(--brown);
+      padding: 16px 32px; border-radius: 14px;
+      text-decoration: none; font-weight: 800; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .cta-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--brown);
+      color: rgba(255,251,245,0.5);
+      padding: 48px 24px;
+      text-align: center;
+      font-size: 0.85rem; font-weight: 600;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      .nav-links a.desktop-only { display: none; }
+      section { padding: 72px 16px; }
+      .hero { padding: 80px 16px 60px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .personalities-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 320px; }
+      .price-card.featured { transform: scale(1); }
+      .rings-demo { gap: 20px; }
+      .ring-svg { width: 76px; height: 76px; }
+      .chapters-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Bilingual toggle ── */
+    [lang="es"] .en, [lang="en"] .es { display: none; }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="privacy/">Privacy Policy</a>...</p>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-logo">Vinora</div>
+  <div class="nav-links">
+    <a href="#features" class="desktop-only en">Features</a>
+    <a href="#features" class="desktop-only es">Funciones</a>
+    <a href="#vendimia" class="desktop-only">Vendimia</a>
+    <a href="#pricing" class="desktop-only en">Pricing</a>
+    <a href="#pricing" class="desktop-only es">Precios</a>
+    <button class="lang-btn" onclick="toggleLang()" aria-label="Switch language">ES / EN</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content fade-up">
+    <div class="hero-badge">
+      <span class="en">Now on the App Store</span>
+      <span class="es">Ya en la App Store</span>
+    </div>
+    <h1>
+      <span class="en">Stop guessing.<br>Start <span class="accent">sipping.</span></span>
+      <span class="es">Deja de adivinar.<br>Empieza a <span class="accent">disfrutar.</span></span>
+    </h1>
+    <p class="subtitle">
+      <span class="en">Scan any wine menu. Understand every bottle. Build your palate. Like having a wine-savvy friend who fits in your pocket.</span>
+      <span class="es">Escanea cualquier carta de vinos. Entiende cada botella. Construye tu paladar. Como tener un amigo entendido de vinos en el bolsillo.</span>
+    </p>
+    <div class="cta-row">
+      <a href="#" class="cta-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="en">Download for iPhone</span>
+        <span class="es">Descargar para iPhone</span>
+      </a>
+      <a href="#features" class="cta-secondary">
+        <span class="en">See how it works &#8595;</span>
+        <span class="es">Mira como funciona &#8595;</span>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="problem">
+  <div class="section-inner" style="text-align:center;">
+    <span class="section-label">
+      <span class="en">The problem</span>
+      <span class="es">El problema</span>
+    </span>
+    <h2 class="section-title fade-up">
+      <span class="en">Wine lists are broken.</span>
+      <span class="es">Las cartas de vino estan rotas.</span>
+    </h2>
+    <p class="section-subtitle fade-up">
+      <span class="en">50 names, zero context. You nod, you point, you pray. Sound familiar?</span>
+      <span class="es">50 nombres, cero contexto. Asientes, senialas, y rezas. Te suena, no?</span>
+    </p>
+    <div class="problem-grid">
+      <div class="problem-card fade-up">
+        <div class="emoji">😬</div>
+        <h3 class="en">The Awkward Point</h3>
+        <h3 class="es">El Senialado Incomodo</h3>
+        <p class="en">You pick the second cheapest wine because... reasons. We've all been there.</p>
+        <p class="es">Pides el segundo mas barato porque... razones. Todos hemos estado ahi.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="emoji">🤷</div>
+        <h3 class="en">The Nod & Smile</h3>
+        <h3 class="es">El "Mmm, Interesante"</h3>
+        <p class="en">The waiter describes the wine. You nod wisely. You understood nothing.</p>
+        <p class="es">El camarero describe el vino. Asientes con cara de entendido. No has pillado nada.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="emoji">🔄</div>
+        <h3 class="en">The Same Old Order</h3>
+        <h3 class="es">El Pedido de Siempre</h3>
+        <p class="en">You found ONE wine you like. Now you order it everywhere. Forever.</p>
+        <p class="es">Encontraste UN vino que te gusta. Ahora lo pides en todos lados. Para siempre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features">
+  <div class="section-inner">
+    <span class="section-label">
+      <span class="en">How Vinora works</span>
+      <span class="es">Como funciona Vinora</span>
+    </span>
+    <h2 class="section-title fade-up">
+      <span class="en">Three taps. Total clarity.</span>
+      <span class="es">Tres toques. Claridad total.</span>
+    </h2>
+    <p class="section-subtitle fade-up">
+      <span class="en">From "I have no idea" to "I'll have the Garnacha, please" in seconds.</span>
+      <span class="es">De "no tengo ni idea" a "ponme la Garnacha, por favor" en segundos.</span>
+    </p>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon scan">📸</div>
+        <h3 class="en">Scan Any Menu</h3>
+        <h3 class="es">Escanea Cualquier Carta</h3>
+        <p class="en">Point your camera at a wine list. Vinora reads every bottle and serves up instant taste profiles, aromas, and food pairings. Restaurant, bar, wine shop — it just works.</p>
+        <p class="es">Apunta la camara a una carta de vinos. Vinora lee cada botella y te muestra perfiles de sabor, aromas y maridajes al instante. Restaurante, bar, vinoteca — simplemente funciona.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon taste">💜</div>
+        <h3 class="en">Build Your Taste DNA</h3>
+        <h3 class="es">Construye tu ADN de Sabor</h3>
+        <p class="en">Rate wines and Vinora learns your palate. Every scan shows a personal match score — 92%? Order with confidence. 47%? Skip it. Or be adventurous. Your call.</p>
+        <p class="es">Valora vinos y Vinora aprende tu paladar. Cada escaneo muestra tu porcentaje de afinidad — 92%? Pidelo sin dudar. 47%? Pasalo. O arriesgate. Tu decides.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon learn">🎓</div>
+        <h3 class="en">Learn While You Sip</h3>
+        <h3 class="es">Aprende Mientras Bebes</h3>
+        <p class="en">Vendimia: 7 chapters of wine education that actually makes sense. Quizzes, XP, sommelier tips. It's like Duolingo met a vineyard.</p>
+        <p class="es">Vendimia: 7 capitulos de educacion vinicola que tienen sentido de verdad. Quizzes, XP, tips de sommelier. Es como si Duolingo hubiese visitado un vinedo.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon diary">📝</div>
+        <h3 class="en">Your Wine Diary</h3>
+        <h3 class="es">Tu Diario de Vinos</h3>
+        <p class="en">Every wine you rate lives in My Wines. Track your evolving palate with the Palate Timeline and watch yourself go from beginner to connoisseur.</p>
+        <p class="es">Cada vino que valoras vive en Mis Vinos. Sigue la evolucion de tu paladar con el Timeline y observa como pasas de principiante a entendido.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon dna">🃏</div>
+        <h3 class="en">Share Your Wine Personality</h3>
+        <h3 class="es">Comparte tu Personalidad Vinicola</h3>
+        <p class="en">Are you The Bold? The Adventurer? The Romantic? Discover your wine archetype and share a gorgeous card on Instagram.</p>
+        <p class="es">Eres El Audaz? El Aventurero? El Sonador? Descubre tu arquetipo vinicola y comparte una tarjeta preciosa en Instagram.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon daily">🔮</div>
+        <h3 class="en">Today's Pour</h3>
+        <h3 class="es">El Consejo del Dia</h3>
+        <p class="en">A new wine insight every single day. 500 tips about pairings, regions, grapes, and technique. Your daily dose of wine wisdom.</p>
+        <p class="es">Un dato nuevo sobre vinos cada dia. 500 consejos sobre maridajes, regiones, uvas y tecnica. Tu dosis diaria de sabiduria vinicola.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Taste Rings -->
+<section class="rings-section" style="background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <span class="section-label">
+      <span class="en">Visual profiles</span>
+      <span class="es">Perfiles visuales</span>
+    </span>
+    <h2 class="section-title fade-up" style="text-align:center;">
+      <span class="en">Every wine, decoded in 4 rings.</span>
+      <span class="es">Cada vino, descifrado en 4 anillos.</span>
+    </h2>
+    <p class="section-subtitle fade-up" style="text-align:center; margin: 0 auto 48px;">
+      <span class="en">No more guessing. One glance tells you everything about a wine's personality.</span>
+      <span class="es">Se acabo adivinar. Un vistazo te dice todo sobre la personalidad de un vino.</span>
+    </p>
+    <div class="rings-demo fade-up">
+      <div class="ring-item">
+        <svg class="ring-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" stroke="#F8BBD0" stroke-width="8"/>
+          <circle cx="50" cy="50" r="42" stroke="#E91E63" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="92" class="ring-animated"/>
+        </svg>
+        <div class="ring-label sweetness">
+          <span class="en">Sweetness</span>
+          <span class="es">Dulzor</span>
+        </div>
+      </div>
+      <div class="ring-item">
+        <svg class="ring-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" stroke="#FFE082" stroke-width="8"/>
+          <circle cx="50" cy="50" r="42" stroke="#FFB300" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="53" class="ring-animated"/>
+        </svg>
+        <div class="ring-label acidity">
+          <span class="en">Acidity</span>
+          <span class="es">Acidez</span>
+        </div>
+      </div>
+      <div class="ring-item">
+        <svg class="ring-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" stroke="#FFCDD2" stroke-width="8"/>
+          <circle cx="50" cy="50" r="42" stroke="#EF5350" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="40" class="ring-animated"/>
+        </svg>
+        <div class="ring-label fruit">
+          <span class="en">Fruit</span>
+          <span class="es">Fruta</span>
+        </div>
+      </div>
+      <div class="ring-item">
+        <svg class="ring-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" stroke="#D1C4E9" stroke-width="8"/>
+          <circle cx="50" cy="50" r="42" stroke="#7E57C2" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="66" class="ring-animated"/>
+        </svg>
+        <div class="ring-label body-l">
+          <span class="en">Body</span>
+          <span class="es">Cuerpo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vendimia -->
+<section id="vendimia" class="vendimia">
+  <div class="section-inner">
+    <span class="section-label">Vendimia</span>
+    <h2 class="section-title fade-up">
+      <span class="en">Wine school, but fun.</span>
+      <span class="es">Escuela de vino, pero divertida.</span>
+    </h2>
+    <p class="section-subtitle fade-up">
+      <span class="en">7 chapters. Quizzes. XP. Zero snobbery. It's basically Duolingo for wine, except the homework involves drinking.</span>
+      <span class="es">7 capitulos. Quizzes. XP. Cero esnobismo. Es basicamente el Duolingo del vino, pero los deberes implican beber.</span>
+    </p>
+    <div class="chapters-grid">
+      <div class="chapter-card fade-up">
+        <div class="chapter-num">
+          <span class="en">Chapter 1</span>
+          <span class="es">Capitulo 1</span>
+        </div>
+        <h3>
+          <span class="en">The First Sip</span>
+          <span class="es">El Primer Sorbo</span>
+        </h3>
+        <p class="en">Look. Smell. Taste. Without the drama.</p>
+        <p class="es">Mirar. Oler. Probar. Sin drama.</p>
+      </div>
+      <div class="chapter-card fade-up">
+        <div class="chapter-num">
+          <span class="en">Chapter 2</span>
+          <span class="es">Capitulo 2</span>
+        </div>
+        <h3>
+          <span class="en">Wine Colors</span>
+          <span class="es">Colores del Vino</span>
+        </h3>
+        <p class="en">What your glass is telling you.</p>
+        <p class="es">Lo que tu copa te esta diciendo.</p>
+      </div>
+      <div class="chapter-card fade-up">
+        <div class="chapter-num">
+          <span class="en">Chapter 3</span>
+          <span class="es">Capitulo 3</span>
+        </div>
+        <h3>
+          <span class="en">Spanish Soil</span>
+          <span class="es">Tierra Espanola</span>
+        </h3>
+        <p class="en">Rioja, Ribera, Priorat, Rias Baixas, Jerez.</p>
+        <p class="es">Rioja, Ribera, Priorat, Rias Baixas, Jerez.</p>
+      </div>
+      <div class="chapter-card fade-up">
+        <div class="chapter-num">
+          <span class="en">Chapter 4</span>
+          <span class="es">Capitulo 4</span>
+        </div>
+        <h3>
+          <span class="en">The Grapes</span>
+          <span class="es">Las Uvas</span>
+        </h3>
+        <p class="en">Tempranillo, Garnacha, Albarino & friends.</p>
+        <p class="es">Tempranillo, Garnacha, Albarino y compania.</p>
+      </div>
+      <div class="chapter-card fade-up">
+        <div class="chapter-num">
+          <span class="en">Chapter 5</span>
+          <span class="es">Capitulo 5</span>
+        </div>
+        <h3>
+          <span class="en">Sweet or Dry</span>
+          <span class="es">Dulce o Seco</span>
+        </h3>
+        <p class="en">The science behind what you feel.</p>
+        <p class="es">La ciencia detras de lo que sientes.</p>
+      </div>
+      <div class="chapter-card fade-up">
+        <div class="chapter-num">
+          <span class="en">Chapter 6</span>
+          <span class="es">Capitulo 6</span>
+        </div>
+        <h3>
+          <span class="en">The Winery</span>
+          <span class="es">La Bodega</span>
+        </h3>
+        <p class="en">From vine to glass.</p>
+        <p class="es">De la vina a tu copa.</p>
+      </div>
+      <div class="chapter-card fade-up">
+        <div class="chapter-num">
+          <span class="en">Chapter 7</span>
+          <span class="es">Capitulo 7</span>
+        </div>
+        <h3>
+          <span class="en">Crianza, Reserva...</span>
+          <span class="es">Crianza, Reserva...</span>
+        </h3>
+        <p class="en">Read Spanish labels like a pro.</p>
+        <p class="es">Leer etiquetas como un pro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wine Personalities -->
+<section>
+  <div class="section-inner" style="text-align:center;">
+    <span class="section-label">
+      <span class="en">Wine DNA</span>
+      <span class="es">ADN Vinicola</span>
+    </span>
+    <h2 class="section-title fade-up">
+      <span class="en">Which wine personality are you?</span>
+      <span class="es">Que personalidad vinicola eres?</span>
+    </h2>
+    <p class="section-subtitle fade-up" style="margin: 0 auto 48px;">
+      <span class="en">Rate wines and discover your archetype. Then flex it on Instagram.</span>
+      <span class="es">Valora vinos y descubre tu arquetipo. Luego presume en Instagram.</span>
+    </p>
+    <div class="personalities-grid">
+      <div class="personality-card fade-up">
+        <div class="personality-emoji">🦁</div>
+        <h3>
+          <span class="en">The Bold</span>
+          <span class="es">El Audaz</span>
+        </h3>
+        <p class="en">Full-bodied & fearless</p>
+        <p class="es">Intenso y sin miedo</p>
+      </div>
+      <div class="personality-card fade-up">
+        <div class="personality-emoji">🧭</div>
+        <h3>
+          <span class="en">The Adventurer</span>
+          <span class="es">El Aventurero</span>
+        </h3>
+        <p class="en">Fruity & vibrant</p>
+        <p class="es">Afrutado y vibrante</p>
+      </div>
+      <div class="personality-card fade-up">
+        <div class="personality-emoji">🌹</div>
+        <h3>
+          <span class="en">The Romantic</span>
+          <span class="es">El Sonador</span>
+        </h3>
+        <p class="en">Sweet & soulful</p>
+        <p class="es">Dulce y sonador</p>
+      </div>
+      <div class="personality-card fade-up">
+        <div class="personality-emoji">🏛️</div>
+        <h3>
+          <span class="en">The Purist</span>
+          <span class="es">El Purista</span>
+        </h3>
+        <p class="en">Structured & refined</p>
+        <p class="es">Estructurado y refinado</p>
+      </div>
+      <div class="personality-card fade-up">
+        <div class="personality-emoji">🔭</div>
+        <h3>
+          <span class="en">The Explorer</span>
+          <span class="es">El Explorador</span>
+        </h3>
+        <p class="en">Curious & balanced</p>
+        <p class="es">Curioso y equilibrado</p>
+      </div>
+      <div class="personality-card fade-up">
+        <div class="personality-emoji">🌊</div>
+        <h3>
+          <span class="en">The Free Spirit</span>
+          <span class="es">Alma Libre</span>
+        </h3>
+        <p class="en">Crisp & lively</p>
+        <p class="es">Fresco y vivaz</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="pricing" style="background: var(--card); border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <span class="section-label">
+      <span class="en">Vinora Pro</span>
+      <span class="es">Vinora Pro</span>
+    </span>
+    <h2 class="section-title fade-up">
+      <span class="en">Start free. Upgrade when the wine bug bites.</span>
+      <span class="es">Empieza gratis. Sube de nivel cuando el gusanillo pique.</span>
+    </h2>
+    <p class="section-subtitle fade-up" style="margin: 0 auto 48px;">
+      <span class="en">10 free scans and 20 ratings. Enough to fall in love. Then go unlimited.</span>
+      <span class="es">10 escaneos y 20 valoraciones gratis. Suficiente para enamorarte. Luego, sin limites.</span>
+    </p>
+    <div class="pricing-grid">
+      <div class="price-card fade-up">
+        <div class="price-name">
+          <span class="en">Monthly</span>
+          <span class="es">Mensual</span>
+        </div>
+        <div class="price-amount">&euro;1.99<span>/
+          <span class="en">mo</span>
+          <span class="es">mes</span>
+        </span></div>
+        <p class="price-note">
+          <span class="en">Cancel anytime</span>
+          <span class="es">Cancela cuando quieras</span>
+        </p>
+      </div>
+      <div class="price-card featured fade-up" data-badge="POPULAR">
+        <div class="price-name">
+          <span class="en">Yearly</span>
+          <span class="es">Anual</span>
+        </div>
+        <div class="price-amount">&euro;9.99<span>/
+          <span class="en">yr</span>
+          <span class="es">ano</span>
+        </span></div>
+        <p class="price-save">
+          <span class="en">Save 58%</span>
+          <span class="es">Ahorra 58%</span>
+        </p>
+        <p class="price-note">
+          <span class="en">Less than a glass a month</span>
+          <span class="es">Menos que una copa al mes</span>
+        </p>
+      </div>
+      <div class="price-card fade-up">
+        <div class="price-name">
+          <span class="en">Lifetime</span>
+          <span class="es">De por vida</span>
+        </div>
+        <div class="price-amount">&euro;19.99</div>
+        <p class="price-note">
+          <span class="en">Pay once, yours forever</span>
+          <span class="es">Pago unico, tuyo para siempre</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <h2 class="section-title fade-up">
+    <span class="en">Your next favorite wine is already on that list.<br>Go find it.</span>
+    <span class="es">Tu proximo vino favorito ya esta en esa carta.<br>Ve a encontrarlo.</span>
+  </h2>
+  <p class="fade-up">
+    <span class="en">Available on the App Store for iPhone.</span>
+    <span class="es">Disponible en la App Store para iPhone.</span>
+  </p>
+  <a href="#" class="cta-white fade-up">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    <span class="en">Download Vinora</span>
+    <span class="es">Descargar Vinora</span>
+  </a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="privacy/">
+      <span class="en">Privacy Policy</span>
+      <span class="es">Politica de Privacidad</span>
+    </a>
+    <a href="terms/">
+      <span class="en">Terms of Service</span>
+      <span class="es">Condiciones de Uso</span>
+    </a>
+    <a href="mailto:team@vinora.app">team@vinora.app</a>
+  </div>
+  <p>&copy; 2024-2026 Vinora &mdash; Rodrigo Luque</p>
+  <p style="margin-top:6px;">
+    <span class="en">Made with love and good wine in Madrid.</span>
+    <span class="es">Hecho con amor y buen vino en Madrid.</span>
+  </p>
+</footer>
+
+<script>
+  // Language toggle
+  function toggleLang() {
+    const html = document.documentElement;
+    const current = html.getAttribute('lang');
+    html.setAttribute('lang', current === 'en' ? 'es' : 'en');
+    localStorage.setItem('vinora-lang', html.getAttribute('lang'));
+  }
+
+  // Restore saved language or detect
+  (function() {
+    const saved = localStorage.getItem('vinora-lang');
+    if (saved) {
+      document.documentElement.setAttribute('lang', saved);
+    } else {
+      const isSpanish = navigator.language.startsWith('es');
+      document.documentElement.setAttribute('lang', isSpanish ? 'es' : 'en');
+    }
+  })();
+
+  // Intersection Observer for fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
