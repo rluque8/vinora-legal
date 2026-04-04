@@ -140,14 +140,21 @@
     }
     .cta-secondary:hover { color: var(--purple); }
 
-    /* ── Hero illustration ── */
+    /* ── Hero illustration (background) ── */
     .hero-illustration {
-      position: relative;
-      width: 340px; height: 340px;
-      margin: 48px auto 0;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 520px; height: 520px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+    @media (min-width: 900px) {
+      .hero-illustration { width: 620px; height: 620px; opacity: 0.3; }
     }
     @media (max-width: 640px) {
-      .hero-illustration { width: 260px; height: 260px; margin-top: 36px; }
+      .hero-illustration { width: 360px; height: 360px; opacity: 0.25; }
     }
     .hero-illustration svg { width: 100%; height: 100%; }
 
@@ -157,44 +164,55 @@
       border-radius: 50%;
       animation: float 6s ease-in-out infinite;
     }
-    .float-element:nth-child(1) { /* grape */ top: 5%; left: 0%; animation-delay: 0s; }
-    .float-element:nth-child(2) { /* ring */ top: 10%; right: 2%; animation-delay: 1.5s; }
-    .float-element:nth-child(3) { /* star */ bottom: 20%; left: -5%; animation-delay: 3s; }
-    .float-element:nth-child(4) { /* heart */ bottom: 10%; right: 0%; animation-delay: 0.8s; }
-    .float-element:nth-child(5) { /* sparkle */ top: 30%; left: -10%; animation-delay: 2.2s; }
-    .float-element:nth-child(6) { /* drop */ top: 25%; right: -5%; animation-delay: 4s; }
+    .float-element:nth-child(1) { top: 8%; left: 5%; animation-delay: 0s; }
+    .float-element:nth-child(2) { top: 12%; right: 8%; animation-delay: 1.5s; }
+    .float-element:nth-child(3) { bottom: 22%; left: 2%; animation-delay: 3s; }
+    .float-element:nth-child(4) { bottom: 12%; right: 5%; animation-delay: 0.8s; }
+    .float-element:nth-child(5) { top: 35%; left: 0%; animation-delay: 2.2s; }
+    .float-element:nth-child(6) { top: 28%; right: 2%; animation-delay: 4s; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-12px) rotate(5deg); }
-      50% { transform: translateY(-6px) rotate(-3deg); }
-      75% { transform: translateY(-14px) rotate(2deg); }
+      25% { transform: translateY(-15px) rotate(5deg); }
+      50% { transform: translateY(-8px) rotate(-3deg); }
+      75% { transform: translateY(-18px) rotate(2deg); }
     }
 
+    /* Floating badges — visible on top of content */
     .float-badge {
       position: absolute;
-      background: var(--card);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 8px 14px;
       font-size: 0.78rem; font-weight: 800;
       color: var(--brown);
-      box-shadow: 0 4px 20px rgba(45,31,20,0.08);
+      box-shadow: 0 4px 24px rgba(45,31,20,0.1);
       white-space: nowrap;
       animation: float-badge 5s ease-in-out infinite;
+      z-index: 2;
+      pointer-events: none;
     }
-    .float-badge.badge-1 { top: 0; right: -30px; animation-delay: 0.5s; }
-    .float-badge.badge-2 { bottom: 15%; left: -40px; animation-delay: 2s; }
-    .float-badge.badge-3 { top: 40%; right: -45px; animation-delay: 3.5s; }
+    .float-badge.badge-1 { top: 18%; right: 8%; animation-delay: 0.5s; }
+    .float-badge.badge-2 { bottom: 28%; left: 5%; animation-delay: 2s; }
+    .float-badge.badge-3 { top: 45%; right: 5%; animation-delay: 3.5s; }
+    .float-badge.badge-4 { bottom: 18%; right: 15%; animation-delay: 1.2s; }
+    .float-badge.badge-5 { top: 32%; left: 3%; animation-delay: 4.2s; }
+
     @media (max-width: 640px) {
-      .float-badge.badge-1 { right: -10px; }
-      .float-badge.badge-2 { left: -15px; }
-      .float-badge.badge-3 { right: -15px; }
+      .float-badge { font-size: 0.7rem; padding: 6px 10px; }
+      .float-badge.badge-1 { right: 2%; top: 14%; }
+      .float-badge.badge-2 { left: 1%; }
+      .float-badge.badge-3 { right: 1%; }
+      .float-badge.badge-4 { right: 5%; }
+      .float-badge.badge-5 { left: 0%; }
     }
 
     @keyframes float-badge {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-12px); }
     }
 
     /* ── Quote callout ── */
@@ -492,6 +510,86 @@
 
 <!-- Hero -->
 <section class="hero">
+
+  <!-- Background illustration (behind content) -->
+  <div class="hero-illustration">
+    <!-- Floating colored orbs -->
+    <div class="float-element" style="width:50px;height:50px;background:radial-gradient(circle,#E91E6344,#E91E6308);"></div>
+    <div class="float-element" style="width:40px;height:40px;background:radial-gradient(circle,#7E57C244,#7E57C208);"></div>
+    <div class="float-element" style="width:35px;height:35px;background:radial-gradient(circle,#FFB30044,#FFB30008);"></div>
+    <div class="float-element" style="width:45px;height:45px;background:radial-gradient(circle,#EF535044,#EF535008);"></div>
+    <div class="float-element" style="width:30px;height:30px;background:radial-gradient(circle,#C5A55A44,#C5A55A08);"></div>
+    <div class="float-element" style="width:25px;height:25px;background:radial-gradient(circle,#4CAF7244,#4CAF7208);"></div>
+
+    <!-- Wine glass SVG -->
+    <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="170" cy="150" r="130" fill="url(#glow)" opacity="0.2"/>
+      <path d="M120 80 C120 80, 110 150, 130 180 C140 195, 155 200, 170 200 C185 200, 200 195, 210 180 C230 150, 220 80, 220 80" stroke="url(#glass-gradient)" stroke-width="3" fill="url(#wine-fill)" opacity="0.9"/>
+      <path d="M128 130 Q170 122, 212 130" stroke="#FFFBF5" stroke-width="1.5" opacity="0.3"/>
+      <line x1="170" y1="200" x2="170" y2="260" stroke="url(#glass-gradient)" stroke-width="3"/>
+      <ellipse cx="170" cy="262" rx="40" ry="6" stroke="url(#glass-gradient)" stroke-width="3" fill="none"/>
+      <circle cx="170" cy="150" r="90" stroke="#E91E63" stroke-width="3" stroke-dasharray="12 18" opacity="0.35">
+        <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="30s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="170" cy="150" r="108" stroke="#FFB300" stroke-width="2.5" stroke-dasharray="8 22" opacity="0.3">
+        <animateTransform attributeName="transform" type="rotate" from="360 170 150" to="0 170 150" dur="25s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="170" cy="150" r="75" stroke="#7E57C2" stroke-width="2.5" stroke-dasharray="6 20" opacity="0.3">
+        <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="20s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="170" cy="150" r="125" stroke="#EF5350" stroke-width="2" stroke-dasharray="10 25" opacity="0.25">
+        <animateTransform attributeName="transform" type="rotate" from="180 170 150" to="-180 170 150" dur="35s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="260" cy="150" r="5" fill="#E91E63" opacity="0.7">
+        <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="30s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="278" cy="150" r="4" fill="#FFB300" opacity="0.6">
+        <animateTransform attributeName="transform" type="rotate" from="360 170 150" to="0 170 150" dur="25s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="245" cy="150" r="4" fill="#7E57C2" opacity="0.6">
+        <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="20s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="295" cy="150" r="3.5" fill="#EF5350" opacity="0.5">
+        <animateTransform attributeName="transform" type="rotate" from="180 170 150" to="-180 170 150" dur="35s" repeatCount="indefinite"/>
+      </circle>
+      <g opacity="0.6">
+        <path d="M80 85 L84 78 L88 85 L84 92Z" fill="#C5A55A"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite"/></path>
+        <path d="M255 65 L259 58 L263 65 L259 72Z" fill="#7C3AED"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/></path>
+        <path d="M60 190 L64 183 L68 190 L64 197Z" fill="#E91E63"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite"/></path>
+        <path d="M275 210 L279 203 L283 210 L279 217Z" fill="#FFB300"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite"/></path>
+        <path d="M170 50 L174 43 L178 50 L174 57Z" fill="#4CAF72"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.8s" repeatCount="indefinite"/></path>
+      </g>
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%"><stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+        <linearGradient id="glass-gradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#C5A55A" stop-opacity="0.6"/><stop offset="100%" stop-color="#8B7A69" stop-opacity="0.4"/></linearGradient>
+        <linearGradient id="wine-fill" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#6B1A2A" stop-opacity="0"/><stop offset="45%" stop-color="#6B1A2A" stop-opacity="0"/><stop offset="50%" stop-color="#6B1A2A" stop-opacity="0.7"/><stop offset="100%" stop-color="#3E0D18" stop-opacity="0.85"/></linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Floating badges (on top of everything) -->
+  <div class="float-badge badge-1">
+    <span class="en">💚 92% match</span>
+    <span class="es">💚 92% afinidad</span>
+  </div>
+  <div class="float-badge badge-2">
+    <span class="en">🍇 Tempranillo · Rioja</span>
+    <span class="es">🍇 Tempranillo · Rioja</span>
+  </div>
+  <div class="float-badge badge-3">
+    <span class="en">🧀 Pairs with cheese</span>
+    <span class="es">🧀 Marida con queso</span>
+  </div>
+  <div class="float-badge badge-4">
+    <span class="en">⭐ 4.8 &mdash; "Love this wine"</span>
+    <span class="es">⭐ 4.8 &mdash; "Me encanta"</span>
+  </div>
+  <div class="float-badge badge-5">
+    <span class="en">🎓 Chapter 3 complete!</span>
+    <span class="es">🎓 &iexcl;Cap&iacute;tulo 3 completado!</span>
+  </div>
+
+  <!-- Hero text content (on top) -->
   <div class="hero-content fade-up">
     <div class="hero-badge">
       <span class="en">Now on the App Store</span>
@@ -513,112 +611,11 @@
       </a>
       <a href="#features" class="cta-secondary">
         <span class="en">See how it works &#8595;</span>
-        <span class="es">Mira como funciona &#8595;</span>
+        <span class="es">Mira c&oacute;mo funciona &#8595;</span>
       </a>
     </div>
-
-    <!-- Hero Illustration -->
-    <div class="hero-illustration fade-up">
-      <!-- Floating badges -->
-      <div class="float-badge badge-1">92% match 💚</div>
-      <div class="float-badge badge-2">
-        <span class="en">🍇 Tempranillo</span>
-        <span class="es">🍇 Tempranillo</span>
-      </div>
-      <div class="float-badge badge-3">
-        <span class="en">🧀 Pairs with cheese</span>
-        <span class="es">🧀 Marida con queso</span>
-      </div>
-
-      <!-- Floating colored orbs -->
-      <div class="float-element" style="width:40px;height:40px;background:radial-gradient(circle,#E91E6344,#E91E6311);"></div>
-      <div class="float-element" style="width:32px;height:32px;background:radial-gradient(circle,#7E57C244,#7E57C211);"></div>
-      <div class="float-element" style="width:28px;height:28px;background:radial-gradient(circle,#FFB30044,#FFB30011);"></div>
-      <div class="float-element" style="width:36px;height:36px;background:radial-gradient(circle,#EF535044,#EF535011);"></div>
-      <div class="float-element" style="width:24px;height:24px;background:radial-gradient(circle,#C5A55A44,#C5A55A11);"></div>
-      <div class="float-element" style="width:20px;height:20px;background:radial-gradient(circle,#4CAF7244,#4CAF7211);"></div>
-
-      <!-- Wine glass SVG illustration -->
-      <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer glow -->
-        <circle cx="170" cy="150" r="120" fill="url(#glow)" opacity="0.15"/>
-
-        <!-- Glass bowl -->
-        <path d="M120 80 C120 80, 110 150, 130 180 C140 195, 155 200, 170 200 C185 200, 200 195, 210 180 C230 150, 220 80, 220 80" stroke="url(#glass-gradient)" stroke-width="2.5" fill="url(#wine-fill)" opacity="0.9"/>
-
-        <!-- Wine surface with gentle curve -->
-        <path d="M128 130 Q170 122, 212 130" stroke="#FFFBF5" stroke-width="1" opacity="0.4"/>
-
-        <!-- Glass stem -->
-        <line x1="170" y1="200" x2="170" y2="260" stroke="url(#glass-gradient)" stroke-width="2.5"/>
-
-        <!-- Glass base -->
-        <ellipse cx="170" cy="262" rx="40" ry="6" stroke="url(#glass-gradient)" stroke-width="2.5" fill="none"/>
-
-        <!-- Taste rings orbiting the glass -->
-        <circle cx="170" cy="150" r="90" stroke="#E91E63" stroke-width="3" stroke-dasharray="12 18" opacity="0.3">
-          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="30s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="170" cy="150" r="105" stroke="#FFB300" stroke-width="2.5" stroke-dasharray="8 22" opacity="0.25">
-          <animateTransform attributeName="transform" type="rotate" from="360 170 150" to="0 170 150" dur="25s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="170" cy="150" r="75" stroke="#7E57C2" stroke-width="2" stroke-dasharray="6 20" opacity="0.25">
-          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="20s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="170" cy="150" r="118" stroke="#EF5350" stroke-width="2" stroke-dasharray="10 25" opacity="0.2">
-          <animateTransform attributeName="transform" type="rotate" from="180 170 150" to="-180 170 150" dur="35s" repeatCount="indefinite"/>
-        </circle>
-
-        <!-- Small dots on orbits -->
-        <circle cx="260" cy="150" r="4" fill="#E91E63" opacity="0.6">
-          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="30s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="275" cy="150" r="3.5" fill="#FFB300" opacity="0.5">
-          <animateTransform attributeName="transform" type="rotate" from="360 170 150" to="0 170 150" dur="25s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="245" cy="150" r="3" fill="#7E57C2" opacity="0.5">
-          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="20s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="288" cy="150" r="3" fill="#EF5350" opacity="0.4">
-          <animateTransform attributeName="transform" type="rotate" from="180 170 150" to="-180 170 150" dur="35s" repeatCount="indefinite"/>
-        </circle>
-
-        <!-- Sparkle accents -->
-        <g opacity="0.5">
-          <path d="M90 90 L93 85 L96 90 L93 95Z" fill="#C5A55A">
-            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
-          </path>
-          <path d="M250 70 L253 65 L256 70 L253 75Z" fill="#7C3AED">
-            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
-          </path>
-          <path d="M70 180 L73 175 L76 180 L73 185Z" fill="#E91E63">
-            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/>
-          </path>
-          <path d="M270 200 L273 195 L276 200 L273 205Z" fill="#FFB300">
-            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite"/>
-          </path>
-        </g>
-
-        <!-- Gradient definitions -->
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#7C3AED"/>
-            <stop offset="100%" stop-color="transparent"/>
-          </radialGradient>
-          <linearGradient id="glass-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#C5A55A" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#8B7A69" stop-opacity="0.4"/>
-          </linearGradient>
-          <linearGradient id="wine-fill" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#6B1A2A" stop-opacity="0"/>
-            <stop offset="45%" stop-color="#6B1A2A" stop-opacity="0"/>
-            <stop offset="50%" stop-color="#6B1A2A" stop-opacity="0.7"/>
-            <stop offset="100%" stop-color="#3E0D18" stop-opacity="0.85"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
   </div>
+
   <div class="scroll-hint">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
