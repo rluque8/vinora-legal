@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinora - Privacy Policy / Politica de Privacidad</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #FFFBF5;
+      color: #3A2A1F;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Language nav ── */
+    .lang-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 251, 245, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(197, 165, 90, 0.2);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .lang-nav a {
+      color: #3A2A1F;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lang-nav a:hover,
+    .lang-nav a:focus {
+      background: #C5A55A;
+      color: #FFFBF5;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      padding: 64px 24px 32px;
+    }
+
+    .header .logo {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #C5A55A;
+    }
+
+    .header .subtitle {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #6B5B50;
+      font-weight: 400;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Section ── */
+    .policy-section {
+      margin-bottom: 80px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFFBF5;
+      background: #C5A55A;
+      padding: 4px 14px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .policy-section > h2:first-of-type {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #3A2A1F;
+      margin-bottom: 4px;
+    }
+
+    .effective-date {
+      font-size: 0.9rem;
+      color: #8A7A6F;
+      margin-bottom: 32px;
+    }
+
+    /* ── Divider between languages ── */
+    .lang-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C5A55A, transparent);
+      margin: 80px 0;
+    }
+
+    /* ── Headings inside policy ── */
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #3A2A1F;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid rgba(197, 165, 90, 0.25);
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #5A4A3F;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    ul, ol {
+      margin: 8px 0 16px 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    strong {
+      color: #3A2A1F;
+    }
+
+    a {
+      color: #C5A55A;
+      text-decoration: underline;
+      text-decoration-color: rgba(197, 165, 90, 0.4);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    a:hover {
+      text-decoration-color: #C5A55A;
+    }
+
+    /* ── Table for data types ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.92rem;
+    }
+
+    .data-table thead th {
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6B5B50;
+      padding: 10px 12px;
+      border-bottom: 2px solid #C5A55A;
+    }
+
+    .data-table tbody td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+      vertical-align: top;
+    }
+
+    .data-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.82rem;
+      color: #8A7A6F;
+      border-top: 1px solid rgba(197, 165, 90, 0.2);
+    }
+
+    .footer a {
+      color: #C5A55A;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .header {
+        padding: 48px 16px 24px;
+      }
+
+      .header .logo {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 0 16px 60px;
+      }
+
+      h3 {
+        font-size: 1.05rem;
+      }
+
+      .data-table {
+        font-size: 0.84rem;
+      }
+
+      .data-table thead th,
+      .data-table tbody td {
+        padding: 8px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language navigation -->
+  <nav class="lang-nav" aria-label="Language selector">
+    <a href="#en">English</a>
+    <a href="#es">Espanol</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Vinora</div>
+    <p class="subtitle">Wine Discovery App for iOS</p>
+  </header>
+
+  <main class="container">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  ENGLISH VERSION                            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="en" class="policy-section">
+      <span class="section-label">English</span>
+      <h2>Privacy Policy</h2>
+      <p class="effective-date">Effective date: March 31, 2026</p>
+
+      <p>
+        Welcome to <strong>Vinora</strong> ("we", "us", "our"). Vinora is a bilingual wine discovery app for iOS developed by Rodrigo Luque. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your personal data.
+      </p>
+      <p>
+        By using Vinora (bundle ID: <code>com.vinora.app</code>), you agree to the collection and use of information in accordance with this policy.
+      </p>
+
+      <!-- 1. Information We Collect -->
+      <h3>1. Information We Collect</h3>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Details</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Account information</strong></td>
+            <td>Email address obtained via Apple Sign-In or Google Sign-In</td>
+            <td>Account creation, authentication, and communication</td>
+          </tr>
+          <tr>
+            <td><strong>Wine scan photos</strong></td>
+            <td>Photos taken with your device camera for wine label scanning</td>
+            <td>Processed via on-device/cloud OCR to identify wine labels. Photos are processed in real time and <strong>not stored</strong> on our servers.</td>
+          </tr>
+          <tr>
+            <td><strong>Wine ratings &amp; notes</strong></td>
+            <td>Ratings, tasting notes, and reviews you create</td>
+            <td>To personalize your wine journal and recommendations</td>
+          </tr>
+          <tr>
+            <td><strong>Taste profile preferences</strong></td>
+            <td>Your flavor preferences and taste profile settings</td>
+            <td>To tailor wine discovery and recommendations</td>
+          </tr>
+          <tr>
+            <td><strong>Purchase information</strong></td>
+            <td>Subscription status and purchase receipts (handled entirely by Apple StoreKit)</td>
+            <td>To manage your subscription and unlock premium features</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Information We Do NOT Collect</h4>
+      <ul>
+        <li>We do <strong>not</strong> use any third-party analytics or advertising SDKs.</li>
+        <li>We do <strong>not</strong> collect precise location data.</li>
+        <li>We do <strong>not</strong> track you across other apps or websites.</li>
+        <li>We do <strong>not</strong> collect device identifiers for advertising purposes.</li>
+      </ul>
+
+      <!-- 2. Camera Usage -->
+      <h3>2. Camera Usage</h3>
+      <p>
+        Vinora uses your device camera solely to scan wine labels. Camera access is requested at runtime and can be revoked at any time through your device's Settings. Images captured for scanning are processed in real time to extract label text and are <strong>never stored, uploaded, or shared</strong>.
+      </p>
+
+      <!-- 3. How We Use Your Information -->
+      <h3>3. How We Use Your Information</h3>
+      <ul>
+        <li><strong>Provide and maintain the service</strong> &mdash; authenticate your account, store your wine journal, and deliver personalized recommendations.</li>
+        <li><strong>Improve the app</strong> &mdash; understand usage patterns in aggregate (without identifying individual users) to enhance features.</li>
+        <li><strong>Communicate with you</strong> &mdash; respond to support requests or send essential service-related notices.</li>
+        <li><strong>Process purchases</strong> &mdash; verify subscription status via Apple StoreKit for auto-renewable subscriptions and lifetime purchases.</li>
+      </ul>
+
+      <!-- 4. Data Storage and Security -->
+      <h3>4. Data Storage and Security</h3>
+      <p>
+        Your account data, wine ratings, notes, and taste preferences are stored securely on <strong>Supabase</strong>, a cloud-hosted PostgreSQL database. Supabase provides encryption at rest and in transit, row-level security policies, and regular security audits.
+      </p>
+      <p>
+        While we implement commercially reasonable safeguards to protect your data, no method of electronic storage or transmission is 100% secure. We encourage you to use a strong, unique password or Sign in with Apple's email-hiding feature for additional privacy.
+      </p>
+
+      <!-- 5. Data Retention -->
+      <h3>5. Data Retention</h3>
+      <p>
+        We retain your personal data for as long as your account is active or as needed to provide the service. If you delete your account (see Section 7), all associated data is permanently removed from our servers within 30 days.
+      </p>
+      <p>
+        Wine scan photos are <strong>not retained</strong> at any point &mdash; they are processed in memory and discarded immediately.
+      </p>
+
+      <!-- 6. Third-Party Sharing -->
+      <h3>6. Third-Party Sharing</h3>
+      <p>
+        We do <strong>not sell, rent, or trade</strong> your personal data to third parties.
+      </p>
+      <p>Your data may only be shared in the following limited circumstances:</p>
+      <ul>
+        <li><strong>Supabase</strong> &mdash; as our database infrastructure provider, Supabase processes and stores your data on our behalf under strict data-processing agreements.</li>
+        <li><strong>Apple</strong> &mdash; purchase and subscription information is managed by Apple through StoreKit. Apple's privacy policy governs that data.</li>
+        <li><strong>Legal requirements</strong> &mdash; we may disclose information if required by law, regulation, or valid legal process.</li>
+      </ul>
+
+      <!-- 7. Your Rights and Choices -->
+      <h3>7. Your Rights and Choices</h3>
+      <p>You have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Access</strong> &mdash; request a copy of the personal data we hold about you.</li>
+        <li><strong>Rectification</strong> &mdash; correct inaccurate or incomplete data.</li>
+        <li><strong>Erasure ("Right to be Forgotten")</strong> &mdash; delete your account and all associated data directly from the app's <strong>Settings</strong> screen, or by contacting us.</li>
+        <li><strong>Data portability</strong> &mdash; request your data in a structured, machine-readable format.</li>
+        <li><strong>Withdraw consent</strong> &mdash; revoke camera access or sign-in permissions at any time via your device settings.</li>
+        <li><strong>Object to processing</strong> &mdash; object to certain types of data processing where we rely on legitimate interest.</li>
+        <li><strong>Lodge a complaint</strong> &mdash; file a complaint with your local data protection authority if you believe your rights have been violated.</li>
+      </ul>
+      <p>
+        To exercise any of these rights, contact us at <a href="mailto:privacy@vinora.app">privacy@vinora.app</a>. We will respond within 30 days.
+      </p>
+
+      <!-- 8. Account Deletion -->
+      <h3>8. Account Deletion</h3>
+      <p>
+        You can delete your account and all associated data at any time from the <strong>Settings</strong> screen within the app. Upon deletion:
+      </p>
+      <ul>
+        <li>Your account information, wine ratings, notes, and taste preferences are permanently erased from our servers within 30 days.</li>
+        <li>Any active subscriptions should be cancelled separately through your Apple ID subscription settings to avoid further charges.</li>
+      </ul>
+
+      <!-- 9. Children's Privacy -->
+      <h3>9. Children's Privacy</h3>
+      <p>
+        Vinora is intended for users of legal drinking age in their jurisdiction. We do not knowingly collect personal data from anyone under the age of 17 (or the applicable minimum age in your country). If you believe a minor has provided us with personal data, please contact us immediately.
+      </p>
+
+      <!-- 10. International Data Transfers -->
+      <h3>10. International Data Transfers</h3>
+      <p>
+        Your data may be transferred to and processed in countries other than your own. Supabase infrastructure may be hosted in the United States or the European Union. Where data is transferred outside the EEA, we ensure appropriate safeguards are in place, including standard contractual clauses.
+      </p>
+
+      <!-- 11. Changes to This Policy -->
+      <h3>11. Changes to This Policy</h3>
+      <p>
+        We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy within the app or by email. The "Effective date" at the top will be revised accordingly. Continued use of Vinora after changes constitutes acceptance of the updated policy.
+      </p>
+
+      <!-- 12. Contact Us -->
+      <h3>12. Contact Us</h3>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:privacy@vinora.app">privacy@vinora.app</a></li>
+        <li><strong>Developer:</strong> Rodrigo Luque (<a href="https://github.com/rluque8" target="_blank" rel="noopener">rluque8 on GitHub</a>)</li>
+      </ul>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  SEPARATOR                                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <hr class="lang-divider">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  SPANISH VERSION                            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="es" class="policy-section">
+      <span class="section-label">Espanol</span>
+      <h2>Politica de Privacidad</h2>
+      <p class="effective-date">Fecha de entrada en vigor: 31 de marzo de 2026</p>
+
+      <p>
+        Bienvenido a <strong>Vinora</strong> ("nosotros", "nuestro"). Vinora es una aplicacion bilingue de descubrimiento de vinos para iOS desarrollada por Rodrigo Luque. Esta Politica de Privacidad explica que informacion recopilamos, como la utilizamos y cuales son tus derechos sobre tus datos personales.
+      </p>
+      <p>
+        Al utilizar Vinora (bundle ID: <code>com.vinora.app</code>), aceptas la recopilacion y el uso de la informacion de acuerdo con esta politica.
+      </p>
+
+      <!-- 1. Informacion que Recopilamos -->
+      <h3>1. Informacion que Recopilamos</h3>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Tipo de dato</th>
+            <th>Detalles</th>
+            <th>Finalidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Informacion de cuenta</strong></td>
+            <td>Direccion de correo electronico obtenida a traves de Iniciar sesion con Apple o Google</td>
+            <td>Creacion de cuenta, autenticacion y comunicacion</td>
+          </tr>
+          <tr>
+            <td><strong>Fotos de escaneo de vinos</strong></td>
+            <td>Fotos tomadas con la camara del dispositivo para escanear etiquetas</td>
+            <td>Procesadas mediante OCR para identificar etiquetas. Las fotos se procesan en tiempo real y <strong>no se almacenan</strong> en nuestros servidores.</td>
+          </tr>
+          <tr>
+            <td><strong>Valoraciones y notas de vinos</strong></td>
+            <td>Puntuaciones, notas de cata y resenas que creas</td>
+            <td>Para personalizar tu diario de vinos y recomendaciones</td>
+          </tr>
+          <tr>
+            <td><strong>Preferencias de perfil de sabor</strong></td>
+            <td>Tus preferencias de sabor y configuracion de perfil</td>
+            <td>Para adaptar el descubrimiento y las recomendaciones de vinos</td>
+          </tr>
+          <tr>
+            <td><strong>Informacion de compra</strong></td>
+            <td>Estado de suscripcion y recibos de compra (gestionados integramente por Apple StoreKit)</td>
+            <td>Para gestionar tu suscripcion y desbloquear funciones premium</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Informacion que NO Recopilamos</h4>
+      <ul>
+        <li><strong>No</strong> utilizamos SDKs de analitica ni de publicidad de terceros.</li>
+        <li><strong>No</strong> recopilamos datos de ubicacion precisa.</li>
+        <li><strong>No</strong> realizamos seguimiento entre aplicaciones o sitios web.</li>
+        <li><strong>No</strong> recopilamos identificadores del dispositivo con fines publicitarios.</li>
+      </ul>
+
+      <!-- 2. Uso de la Camara -->
+      <h3>2. Uso de la Camara</h3>
+      <p>
+        Vinora utiliza la camara de tu dispositivo unicamente para escanear etiquetas de vino. El acceso a la camara se solicita en el momento de uso y puede revocarse en cualquier momento desde los Ajustes del dispositivo. Las imagenes capturadas para el escaneo se procesan en tiempo real para extraer el texto de la etiqueta y <strong>nunca se almacenan, suben ni comparten</strong>.
+      </p>
+
+      <!-- 3. Como Utilizamos tu Informacion -->
+      <h3>3. Como Utilizamos tu Informacion</h3>
+      <ul>
+        <li><strong>Proporcionar y mantener el servicio</strong> &mdash; autenticar tu cuenta, almacenar tu diario de vinos y ofrecer recomendaciones personalizadas.</li>
+        <li><strong>Mejorar la aplicacion</strong> &mdash; comprender patrones de uso de forma agregada (sin identificar usuarios individuales) para mejorar las funcionalidades.</li>
+        <li><strong>Comunicarnos contigo</strong> &mdash; responder a solicitudes de soporte o enviar avisos esenciales relacionados con el servicio.</li>
+        <li><strong>Procesar compras</strong> &mdash; verificar el estado de suscripcion mediante Apple StoreKit para suscripciones de renovacion automatica y compras de por vida.</li>
+      </ul>
+
+      <!-- 4. Almacenamiento y Seguridad de los Datos -->
+      <h3>4. Almacenamiento y Seguridad de los Datos</h3>
+      <p>
+        Los datos de tu cuenta, valoraciones de vinos, notas y preferencias de sabor se almacenan de forma segura en <strong>Supabase</strong>, una base de datos PostgreSQL alojada en la nube. Supabase proporciona cifrado en reposo y en transito, politicas de seguridad a nivel de fila y auditorias de seguridad periodicas.
+      </p>
+      <p>
+        Aunque implementamos medidas de seguridad comercialmente razonables para proteger tus datos, ningun metodo de almacenamiento electronico o transmision es 100% seguro. Te recomendamos utilizar una contrasena segura y unica o la funcion de ocultacion de correo electronico de Iniciar sesion con Apple para mayor privacidad.
+      </p>
+
+      <!-- 5. Retencion de Datos -->
+      <h3>5. Retencion de Datos</h3>
+      <p>
+        Conservamos tus datos personales mientras tu cuenta este activa o sea necesario para proporcionar el servicio. Si eliminas tu cuenta (ver Seccion 7), todos los datos asociados se eliminan permanentemente de nuestros servidores en un plazo de 30 dias.
+      </p>
+      <p>
+        Las fotos de escaneo de vinos <strong>no se conservan</strong> en ningun momento &mdash; se procesan en memoria y se descartan inmediatamente.
+      </p>
+
+      <!-- 6. Comparticion con Terceros -->
+      <h3>6. Comparticion con Terceros</h3>
+      <p>
+        <strong>No vendemos, alquilamos ni comerciamos</strong> con tus datos personales a terceros.
+      </p>
+      <p>Tus datos solo pueden compartirse en las siguientes circunstancias limitadas:</p>
+      <ul>
+        <li><strong>Supabase</strong> &mdash; como nuestro proveedor de infraestructura de base de datos, Supabase procesa y almacena tus datos en nuestro nombre bajo estrictos acuerdos de procesamiento de datos.</li>
+        <li><strong>Apple</strong> &mdash; la informacion de compras y suscripciones es gestionada por Apple a traves de StoreKit. La politica de privacidad de Apple rige esos datos.</li>
+        <li><strong>Requisitos legales</strong> &mdash; podemos divulgar informacion si asi lo exige la ley, la normativa o un proceso legal valido.</li>
+      </ul>
+
+      <!-- 7. Tus Derechos y Opciones -->
+      <h3>7. Tus Derechos y Opciones</h3>
+      <p>Tienes los siguientes derechos respecto a tus datos personales:</p>
+      <ul>
+        <li><strong>Acceso</strong> &mdash; solicitar una copia de los datos personales que tenemos sobre ti.</li>
+        <li><strong>Rectificacion</strong> &mdash; corregir datos inexactos o incompletos.</li>
+        <li><strong>Supresion ("Derecho al Olvido")</strong> &mdash; eliminar tu cuenta y todos los datos asociados directamente desde la pantalla de <strong>Ajustes</strong> de la aplicacion, o contactandonos.</li>
+        <li><strong>Portabilidad de datos</strong> &mdash; solicitar tus datos en un formato estructurado y legible por maquina.</li>
+        <li><strong>Retirar el consentimiento</strong> &mdash; revocar el acceso a la camara o los permisos de inicio de sesion en cualquier momento desde los ajustes de tu dispositivo.</li>
+        <li><strong>Oposicion al procesamiento</strong> &mdash; oponerte a ciertos tipos de procesamiento de datos cuando nos basamos en interes legitimo.</li>
+        <li><strong>Presentar una reclamacion</strong> &mdash; presentar una queja ante tu autoridad local de proteccion de datos si consideras que se han vulnerado tus derechos.</li>
+      </ul>
+      <p>
+        Para ejercer cualquiera de estos derechos, contactanos en <a href="mailto:privacy@vinora.app">privacy@vinora.app</a>. Responderemos en un plazo de 30 dias.
+      </p>
+
+      <!-- 8. Eliminacion de Cuenta -->
+      <h3>8. Eliminacion de Cuenta</h3>
+      <p>
+        Puedes eliminar tu cuenta y todos los datos asociados en cualquier momento desde la pantalla de <strong>Ajustes</strong> dentro de la aplicacion. Al eliminar la cuenta:
+      </p>
+      <ul>
+        <li>Tu informacion de cuenta, valoraciones de vinos, notas y preferencias de sabor se borran permanentemente de nuestros servidores en un plazo de 30 dias.</li>
+        <li>Las suscripciones activas deben cancelarse por separado a traves de los ajustes de suscripcion de tu Apple ID para evitar cargos adicionales.</li>
+      </ul>
+
+      <!-- 9. Privacidad de Menores -->
+      <h3>9. Privacidad de Menores</h3>
+      <p>
+        Vinora esta destinada a usuarios con edad legal para consumir alcohol en su jurisdiccion. No recopilamos conscientemente datos personales de menores de 17 anos (o la edad minima aplicable en tu pais). Si crees que un menor nos ha proporcionado datos personales, contactanos inmediatamente.
+      </p>
+
+      <!-- 10. Transferencias Internacionales de Datos -->
+      <h3>10. Transferencias Internacionales de Datos</h3>
+      <p>
+        Tus datos pueden ser transferidos y procesados en paises distintos al tuyo. La infraestructura de Supabase puede estar alojada en Estados Unidos o en la Union Europea. Cuando los datos se transfieren fuera del EEE, nos aseguramos de que existan garantias adecuadas, incluidas clausulas contractuales tipo.
+      </p>
+
+      <!-- 11. Cambios en Esta Politica -->
+      <h3>11. Cambios en Esta Politica</h3>
+      <p>
+        Podemos actualizar esta Politica de Privacidad periodicamente. Te notificaremos de cambios importantes publicando la politica actualizada dentro de la aplicacion o por correo electronico. La "Fecha de entrada en vigor" en la parte superior se revisara en consecuencia. El uso continuado de Vinora tras los cambios constituye la aceptacion de la politica actualizada.
+      </p>
+
+      <!-- 12. Contacto -->
+      <h3>12. Contacto</h3>
+      <p>Si tienes alguna pregunta, inquietud o solicitud relacionada con esta Politica de Privacidad o tus datos personales, contactanos:</p>
+      <ul>
+        <li><strong>Correo electronico:</strong> <a href="mailto:privacy@vinora.app">privacy@vinora.app</a></li>
+        <li><strong>Desarrollador:</strong> Rodrigo Luque (<a href="https://github.com/rluque8" target="_blank" rel="noopener">rluque8 en GitHub</a>)</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Vinora &mdash; Rodrigo Luque. All rights reserved. / Todos los derechos reservados.</p>
+    <p style="margin-top: 6px;">
+      <a href="https://github.com/rluque8" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>
