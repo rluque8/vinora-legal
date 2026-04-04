@@ -140,6 +140,98 @@
     }
     .cta-secondary:hover { color: var(--purple); }
 
+    /* ── Hero illustration ── */
+    .hero-illustration {
+      position: relative;
+      width: 340px; height: 340px;
+      margin: 48px auto 0;
+    }
+    @media (max-width: 640px) {
+      .hero-illustration { width: 260px; height: 260px; margin-top: 36px; }
+    }
+    .hero-illustration svg { width: 100%; height: 100%; }
+
+    /* Floating elements around the glass */
+    .float-element {
+      position: absolute;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+    .float-element:nth-child(1) { /* grape */ top: 5%; left: 0%; animation-delay: 0s; }
+    .float-element:nth-child(2) { /* ring */ top: 10%; right: 2%; animation-delay: 1.5s; }
+    .float-element:nth-child(3) { /* star */ bottom: 20%; left: -5%; animation-delay: 3s; }
+    .float-element:nth-child(4) { /* heart */ bottom: 10%; right: 0%; animation-delay: 0.8s; }
+    .float-element:nth-child(5) { /* sparkle */ top: 30%; left: -10%; animation-delay: 2.2s; }
+    .float-element:nth-child(6) { /* drop */ top: 25%; right: -5%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-12px) rotate(5deg); }
+      50% { transform: translateY(-6px) rotate(-3deg); }
+      75% { transform: translateY(-14px) rotate(2deg); }
+    }
+
+    .float-badge {
+      position: absolute;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 8px 14px;
+      font-size: 0.78rem; font-weight: 800;
+      color: var(--brown);
+      box-shadow: 0 4px 20px rgba(45,31,20,0.08);
+      white-space: nowrap;
+      animation: float-badge 5s ease-in-out infinite;
+    }
+    .float-badge.badge-1 { top: 0; right: -30px; animation-delay: 0.5s; }
+    .float-badge.badge-2 { bottom: 15%; left: -40px; animation-delay: 2s; }
+    .float-badge.badge-3 { top: 40%; right: -45px; animation-delay: 3.5s; }
+    @media (max-width: 640px) {
+      .float-badge.badge-1 { right: -10px; }
+      .float-badge.badge-2 { left: -15px; }
+      .float-badge.badge-3 { right: -15px; }
+    }
+
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ── Quote callout ── */
+    .quote-section {
+      padding: 80px 24px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--cream) 0%, #F5EFE5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-section::before {
+      content: '\201C';
+      position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+      font-size: 12rem; font-weight: 900;
+      color: rgba(197,165,90,0.08);
+      line-height: 1; pointer-events: none;
+      font-family: Georgia, serif;
+    }
+    .quote-text {
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
+      font-weight: 900; line-height: 1.35;
+      max-width: 700px; margin: 0 auto 24px;
+      color: var(--brown);
+      position: relative; z-index: 1;
+    }
+    .quote-text .highlight {
+      background: linear-gradient(135deg, var(--purple), var(--red-wine));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .quote-tagline {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--brown-light);
+      position: relative; z-index: 1;
+    }
+
     /* ── Scroll indicator ── */
     .scroll-hint {
       position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
@@ -423,6 +515,108 @@
         <span class="en">See how it works &#8595;</span>
         <span class="es">Mira como funciona &#8595;</span>
       </a>
+    </div>
+
+    <!-- Hero Illustration -->
+    <div class="hero-illustration fade-up">
+      <!-- Floating badges -->
+      <div class="float-badge badge-1">92% match 💚</div>
+      <div class="float-badge badge-2">
+        <span class="en">🍇 Tempranillo</span>
+        <span class="es">🍇 Tempranillo</span>
+      </div>
+      <div class="float-badge badge-3">
+        <span class="en">🧀 Pairs with cheese</span>
+        <span class="es">🧀 Marida con queso</span>
+      </div>
+
+      <!-- Floating colored orbs -->
+      <div class="float-element" style="width:40px;height:40px;background:radial-gradient(circle,#E91E6344,#E91E6311);"></div>
+      <div class="float-element" style="width:32px;height:32px;background:radial-gradient(circle,#7E57C244,#7E57C211);"></div>
+      <div class="float-element" style="width:28px;height:28px;background:radial-gradient(circle,#FFB30044,#FFB30011);"></div>
+      <div class="float-element" style="width:36px;height:36px;background:radial-gradient(circle,#EF535044,#EF535011);"></div>
+      <div class="float-element" style="width:24px;height:24px;background:radial-gradient(circle,#C5A55A44,#C5A55A11);"></div>
+      <div class="float-element" style="width:20px;height:20px;background:radial-gradient(circle,#4CAF7244,#4CAF7211);"></div>
+
+      <!-- Wine glass SVG illustration -->
+      <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer glow -->
+        <circle cx="170" cy="150" r="120" fill="url(#glow)" opacity="0.15"/>
+
+        <!-- Glass bowl -->
+        <path d="M120 80 C120 80, 110 150, 130 180 C140 195, 155 200, 170 200 C185 200, 200 195, 210 180 C230 150, 220 80, 220 80" stroke="url(#glass-gradient)" stroke-width="2.5" fill="url(#wine-fill)" opacity="0.9"/>
+
+        <!-- Wine surface with gentle curve -->
+        <path d="M128 130 Q170 122, 212 130" stroke="#FFFBF5" stroke-width="1" opacity="0.4"/>
+
+        <!-- Glass stem -->
+        <line x1="170" y1="200" x2="170" y2="260" stroke="url(#glass-gradient)" stroke-width="2.5"/>
+
+        <!-- Glass base -->
+        <ellipse cx="170" cy="262" rx="40" ry="6" stroke="url(#glass-gradient)" stroke-width="2.5" fill="none"/>
+
+        <!-- Taste rings orbiting the glass -->
+        <circle cx="170" cy="150" r="90" stroke="#E91E63" stroke-width="3" stroke-dasharray="12 18" opacity="0.3">
+          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="30s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="170" cy="150" r="105" stroke="#FFB300" stroke-width="2.5" stroke-dasharray="8 22" opacity="0.25">
+          <animateTransform attributeName="transform" type="rotate" from="360 170 150" to="0 170 150" dur="25s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="170" cy="150" r="75" stroke="#7E57C2" stroke-width="2" stroke-dasharray="6 20" opacity="0.25">
+          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="20s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="170" cy="150" r="118" stroke="#EF5350" stroke-width="2" stroke-dasharray="10 25" opacity="0.2">
+          <animateTransform attributeName="transform" type="rotate" from="180 170 150" to="-180 170 150" dur="35s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Small dots on orbits -->
+        <circle cx="260" cy="150" r="4" fill="#E91E63" opacity="0.6">
+          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="30s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="275" cy="150" r="3.5" fill="#FFB300" opacity="0.5">
+          <animateTransform attributeName="transform" type="rotate" from="360 170 150" to="0 170 150" dur="25s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="245" cy="150" r="3" fill="#7E57C2" opacity="0.5">
+          <animateTransform attributeName="transform" type="rotate" from="0 170 150" to="360 170 150" dur="20s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="288" cy="150" r="3" fill="#EF5350" opacity="0.4">
+          <animateTransform attributeName="transform" type="rotate" from="180 170 150" to="-180 170 150" dur="35s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Sparkle accents -->
+        <g opacity="0.5">
+          <path d="M90 90 L93 85 L96 90 L93 95Z" fill="#C5A55A">
+            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M250 70 L253 65 L256 70 L253 75Z" fill="#7C3AED">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <path d="M70 180 L73 175 L76 180 L73 185Z" fill="#E91E63">
+            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/>
+          </path>
+          <path d="M270 200 L273 195 L276 200 L273 205Z" fill="#FFB300">
+            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite"/>
+          </path>
+        </g>
+
+        <!-- Gradient definitions -->
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%">
+            <stop offset="0%" stop-color="#7C3AED"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <linearGradient id="glass-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#C5A55A" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#8B7A69" stop-opacity="0.4"/>
+          </linearGradient>
+          <linearGradient id="wine-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#6B1A2A" stop-opacity="0"/>
+            <stop offset="45%" stop-color="#6B1A2A" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#6B1A2A" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#3E0D18" stop-opacity="0.85"/>
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
   </div>
   <div class="scroll-hint">
@@ -829,6 +1023,18 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- Quote callout -->
+<section class="quote-section">
+  <p class="quote-text fade-up">
+    <span class="en">There are two kinds of people: those who order <span class="highlight">"the second cheapest"</span> and those who open Vinora.<br>You decide which one you want to be.</span>
+    <span class="es">Hay dos tipos de personas: las que piden <span class="highlight">"el segundo m&aacute;s barato"</span> y las que abren Vinora.<br>T&uacute; decides cu&aacute;l quieres ser.</span>
+  </p>
+  <p class="quote-tagline fade-up">
+    <span class="en">— Every wine lover, eventually</span>
+    <span class="es">— Todo amante del vino, tarde o temprano</span>
+  </p>
 </section>
 
 <!-- Final CTA -->
