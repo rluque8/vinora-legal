@@ -922,7 +922,7 @@
       animation: quizBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both, quizFloat 3s ease-in-out 0.7s infinite;
       flex-shrink: 0;
     }
-    .quiz-illus svg { width: 80px; height: 80px; }
+    .quiz-illus svg { width: 96px; height: 96px; }
     .quiz-illus--1 { background: linear-gradient(135deg, #F8E8EC, #FCDFE5); box-shadow: 0 6px 0 #E8C8D0; }
     .quiz-illus--2 { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); box-shadow: 0 6px 0 #C4B5E9; }
     .quiz-illus--3 { background: linear-gradient(135deg, #FFF3DC, #FFECB3); box-shadow: 0 6px 0 #E0CC8A; }
@@ -1061,14 +1061,25 @@
       <div class="quiz-slide active" data-q="0">
         <span class="quiz-counter">1 / 4</span>
         <div class="quiz-illus quiz-illus--1">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="18" y="10" width="44" height="60" rx="6" fill="#fff" stroke="#6B1A2A" stroke-width="2.5"/>
-            <line x1="26" y1="24" x2="54" y2="24" stroke="#E8C8D0" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="26" y1="33" x2="54" y2="33" stroke="#E8C8D0" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="26" y1="42" x2="48" y2="42" stroke="#6B1A2A" stroke-width="3" stroke-linecap="round"/>
-            <line x1="26" y1="51" x2="54" y2="51" stroke="#E8C8D0" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="56" cy="42" r="7" fill="#6B1A2A"/>
-            <path d="M54 42l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Menu paper with chunky border -->
+            <rect x="18" y="14" width="64" height="74" rx="8" fill="#fff" stroke="#6B1A2A" stroke-width="3.5"/>
+            <!-- Header line -->
+            <rect x="28" y="22" width="20" height="4" rx="2" fill="#6B1A2A"/>
+            <!-- Wine items -->
+            <line x1="26" y1="36" x2="62" y2="36" stroke="#E8C8D0" stroke-width="3" stroke-linecap="round"/>
+            <line x1="65" y1="36" x2="74" y2="36" stroke="#E8C8D0" stroke-width="3" stroke-linecap="round"/>
+            <!-- Highlighted second wine (the panic-pick) -->
+            <rect x="22" y="44" width="56" height="11" rx="3" fill="#FCDFE5"/>
+            <line x1="26" y1="49.5" x2="58" y2="49.5" stroke="#6B1A2A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="62" y1="49.5" x2="74" y2="49.5" stroke="#6B1A2A" stroke-width="3" stroke-linecap="round"/>
+            <line x1="26" y1="63" x2="62" y2="63" stroke="#E8C8D0" stroke-width="3" stroke-linecap="round"/>
+            <line x1="65" y1="63" x2="74" y2="63" stroke="#E8C8D0" stroke-width="3" stroke-linecap="round"/>
+            <line x1="26" y1="76" x2="62" y2="76" stroke="#E8C8D0" stroke-width="3" stroke-linecap="round"/>
+            <line x1="65" y1="76" x2="74" y2="76" stroke="#E8C8D0" stroke-width="3" stroke-linecap="round"/>
+            <!-- Pointing finger / arrow on selected line -->
+            <circle cx="84" cy="49.5" r="8" fill="#6B1A2A"/>
+            <path d="M80 49.5l3 3 5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <h2 class="quiz-question">
@@ -1085,14 +1096,23 @@
       <div class="quiz-slide" data-q="1">
         <span class="quiz-counter">2 / 4</span>
         <div class="quiz-illus quiz-illus--2">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 18h16l4 22c0 8-10 12-12 12s-12-4-12-12l4-22z" fill="#7C3AED" opacity="0.2"/>
-            <path d="M32 18h16l4 22c0 8-10 12-12 12s-12-4-12-12l4-22z" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="40" y1="52" x2="40" y2="64" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="32" y1="64" x2="48" y2="64" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M28 30c4-4 8 2 12-2s8 2 12-2" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/>
-            <path d="M46 14c2-4 6-4 8 0" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-            <path d="M50 10c1.5-3 5-3 6.5 0" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Aroma swirls rising up -->
+            <path d="M58 18c4-2 8 0 8 4s-4 6-8 4" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M62 8c3-1.5 6 0 6 3s-3 4.5-6 3" stroke="#A78BFA" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+            <circle cx="72" cy="14" r="2" fill="#A78BFA" opacity="0.5"/>
+            <!-- Wine glass bowl -->
+            <path d="M30 28h40l-4 24c-1 8-10 14-16 14s-15-6-16-14l-4-24z" fill="#7C3AED" opacity="0.18"/>
+            <path d="M30 28h40l-4 24c-1 8-10 14-16 14s-15-6-16-14l-4-24z" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Wine inside -->
+            <path d="M34 40c2 8 8 14 16 14s14-6 16-14l-2 12c-1 8-9 14-14 14s-13-6-14-14l-2-12z" fill="#7C3AED" opacity="0.5"/>
+            <!-- Stem -->
+            <line x1="50" y1="66" x2="50" y2="82" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Base -->
+            <line x1="36" y1="86" x2="64" y2="86" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Swirl arrow -->
+            <path d="M26 50c-2-4 0-10 4-12" stroke="#5B21B6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M28 38l2 0 0 2" stroke="#5B21B6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <h2 class="quiz-question">
@@ -1109,18 +1129,31 @@
       <div class="quiz-slide" data-q="2">
         <span class="quiz-counter">3 / 4</span>
         <div class="quiz-illus quiz-illus--3">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="44" r="6" fill="#C5A55A" opacity="0.3"/>
-            <circle cx="44" cy="40" r="6" fill="#C5A55A" opacity="0.3"/>
-            <circle cx="38" cy="52" r="6" fill="#C5A55A" opacity="0.3"/>
-            <circle cx="32" cy="44" r="6" stroke="#C5A55A" stroke-width="2"/>
-            <circle cx="44" cy="40" r="6" stroke="#C5A55A" stroke-width="2"/>
-            <circle cx="38" cy="52" r="6" stroke="#C5A55A" stroke-width="2"/>
-            <path d="M38 34V18" stroke="#8B7A3E" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M34 22c-4-2-6 2-4 4" stroke="#8B7A3E" stroke-width="2" stroke-linecap="round"/>
-            <path d="M42 20c4-2 6 2 4 4" stroke="#8B7A3E" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="56" cy="28" r="9" fill="none" stroke="#6B1A2A" stroke-width="2.5"/>
-            <text x="56" y="32" text-anchor="middle" font-size="12" font-weight="800" fill="#6B1A2A">?</text>
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stem -->
+            <path d="M50 24V14" stroke="#6B4520" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Vine leaf left -->
+            <path d="M42 16c-6-4-12 0-10 6 2 4 8 4 10 0" fill="#8FBC5F" stroke="#5A8C3F" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Vine leaf right -->
+            <path d="M58 16c6-4 12 0 10 6-2 4-8 4-10 0" fill="#8FBC5F" stroke="#5A8C3F" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Grape cluster - top row -->
+            <circle cx="38" cy="36" r="8" fill="#C5A55A" stroke="#8B7A3E" stroke-width="2.5"/>
+            <circle cx="50" cy="34" r="8" fill="#D4B66A" stroke="#8B7A3E" stroke-width="2.5"/>
+            <circle cx="62" cy="36" r="8" fill="#C5A55A" stroke="#8B7A3E" stroke-width="2.5"/>
+            <!-- Highlight -->
+            <circle cx="36" cy="34" r="2" fill="#fff" opacity="0.6"/>
+            <circle cx="48" cy="32" r="2" fill="#fff" opacity="0.6"/>
+            <circle cx="60" cy="34" r="2" fill="#fff" opacity="0.6"/>
+            <!-- Middle row -->
+            <circle cx="44" cy="50" r="8" fill="#D4B66A" stroke="#8B7A3E" stroke-width="2.5"/>
+            <circle cx="56" cy="50" r="8" fill="#C5A55A" stroke="#8B7A3E" stroke-width="2.5"/>
+            <circle cx="42" cy="48" r="2" fill="#fff" opacity="0.6"/>
+            <circle cx="54" cy="48" r="2" fill="#fff" opacity="0.6"/>
+            <!-- Bottom row -->
+            <circle cx="50" cy="64" r="8" fill="#D4B66A" stroke="#8B7A3E" stroke-width="2.5"/>
+            <circle cx="48" cy="62" r="2" fill="#fff" opacity="0.6"/>
+            <!-- Bottom grape -->
+            <circle cx="50" cy="78" r="6" fill="#C5A55A" stroke="#8B7A3E" stroke-width="2.5"/>
           </svg>
         </div>
         <h2 class="quiz-question">
@@ -1137,16 +1170,23 @@
       <div class="quiz-slide" data-q="3">
         <span class="quiz-counter">4 / 4</span>
         <div class="quiz-illus quiz-illus--4">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 26h8l2 14c0 5-5 8-6 8s-6-3-6-8l2-14z" fill="#6B1A2A" opacity="0.2"/>
-            <path d="M30 26h8l2 14c0 5-5 8-6 8s-6-3-6-8l2-14z" stroke="#6B1A2A" stroke-width="2" stroke-linecap="round"/>
-            <line x1="34" y1="48" x2="34" y2="54" stroke="#6B1A2A" stroke-width="2" stroke-linecap="round"/>
-            <line x1="30" y1="54" x2="38" y2="54" stroke="#6B1A2A" stroke-width="2" stroke-linecap="round"/>
-            <path d="M48 28c4-2 10 2 10 10s-4 14-10 16" stroke="#4CAF72" stroke-width="3" stroke-linecap="round"/>
-            <path d="M48 34c2-1 6 1 6 6s-2 8-6 10" stroke="#4CAF72" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="54" cy="22" r="3" fill="#C5A55A"/>
-            <circle cx="62" cy="18" r="2" fill="#C5A55A" opacity="0.6"/>
-            <circle cx="58" cy="14" r="2.5" fill="#C5A55A" opacity="0.4"/>
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Wine glass with thick "body" -->
+            <path d="M28 24h44l-3 22c-1 12-12 20-19 20s-18-8-19-20l-3-22z" fill="#6B1A2A" opacity="0.18"/>
+            <path d="M28 24h44l-3 22c-1 12-12 20-19 20s-18-8-19-20l-3-22z" stroke="#6B1A2A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Wine fill (rich body) -->
+            <path d="M32 38c2 12 10 20 18 20s16-8 18-20l-2 8c-1 12-10 20-16 20s-15-8-16-20l-2-8z" fill="#6B1A2A" opacity="0.65"/>
+            <!-- Highlight on glass -->
+            <path d="M36 32c2 4 2 10 0 14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <!-- Stem -->
+            <line x1="50" y1="66" x2="50" y2="84" stroke="#6B1A2A" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Base -->
+            <line x1="34" y1="88" x2="66" y2="88" stroke="#6B1A2A" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Flexing muscle "body" indicator - small bicep arm next to glass -->
+            <circle cx="78" cy="20" r="10" fill="#FFE4A8" stroke="#6B1A2A" stroke-width="2.5"/>
+            <path d="M74 20c0-3 2-5 4-5s4 2 4 5" stroke="#6B1A2A" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <circle cx="76" cy="19" r="0.8" fill="#6B1A2A"/>
+            <circle cx="80" cy="19" r="0.8" fill="#6B1A2A"/>
           </svg>
         </div>
         <h2 class="quiz-question">
@@ -1191,7 +1231,7 @@
           <span data-lang="en">Relax, that's what Vinora is for</span>
         </h2>
         <p>
-          <span data-lang="es">Escanea cualquier carta de vinos y entiende cada botella al instante. Sin esnobismos.</span>
+          <span data-lang="es">Escanea cualquier carta de vinos y entiende cada botella al instante. Sin postureo.</span>
           <span data-lang="en">Scan any wine menu and understand every bottle instantly. No snobbery.</span>
         </p>
         <button class="quiz-enter-btn" id="quiz-enter">
@@ -1570,7 +1610,7 @@
 
         <h2 class="section-title">
           <span data-lang="en">Learn wine without the snobbery</span>
-          <span data-lang="es">Aprende vino sin esnobismo</span>
+          <span data-lang="es">Aprende vino sin postureo</span>
         </h2>
 
         <p class="section-desc">
