@@ -1,234 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <!-- Background -->
-    <linearGradient id="bg" x1="0" y1="0" x2="0.4" y2="1">
-      <stop offset="0%" stop-color="#4A1228"/>
-      <stop offset="40%" stop-color="#2E0A18"/>
-      <stop offset="100%" stop-color="#140610"/>
+    <!-- Wine background — matches the app icon -->
+    <linearGradient id="vl-bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#B8253D"/>
+      <stop offset="55%" stop-color="#7A1828"/>
+      <stop offset="100%" stop-color="#42101A"/>
     </linearGradient>
-    <radialGradient id="bgGlow" cx="512" cy="380" r="420" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.12"/>
-      <stop offset="50%" stop-color="#6B1A2A" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#140610" stop-opacity="0"/>
+    <!-- Warm top-left glow -->
+    <radialGradient id="vl-glow" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0%" stop-color="#FFC57A" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#42101A" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="bgGlow2" cx="400" cy="600" r="300" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#C5A55A" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#140610" stop-opacity="0"/>
+    <!-- Puffy cream V gradient -->
+    <linearGradient id="vl-v" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="55%" stop-color="#FFF8E8"/>
+      <stop offset="100%" stop-color="#F0DCB6"/>
+    </linearGradient>
+    <!-- Glossy gold drop -->
+    <radialGradient id="vl-drop" cx="0.35" cy="0.3" r="0.75">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="20%" stop-color="#FFF1B0"/>
+      <stop offset="60%" stop-color="#F4C24E"/>
+      <stop offset="100%" stop-color="#7A5A1E"/>
     </radialGradient>
-
-    <!-- Glass body gradients -->
-    <linearGradient id="bowlMain" x1="0.15" y1="0" x2="0.85" y2="1">
-      <stop offset="0%" stop-color="#FFFDF9"/>
-      <stop offset="40%" stop-color="#F8F0E2"/>
-      <stop offset="100%" stop-color="#E8D8C0"/>
-    </linearGradient>
-    <linearGradient id="bowlEdge" x1="0.5" y1="0" x2="0.5" y2="1">
-      <stop offset="0%" stop-color="#D8C8A8"/>
-      <stop offset="100%" stop-color="#C0AE90"/>
-    </linearGradient>
-    <linearGradient id="stemGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#DDD0B8"/>
-      <stop offset="35%" stop-color="#F8F0E2"/>
-      <stop offset="65%" stop-color="#FFFDF9"/>
-      <stop offset="100%" stop-color="#D8C8A8"/>
-    </linearGradient>
-    <linearGradient id="baseGrad" x1="0.1" y1="0" x2="0.9" y2="1">
-      <stop offset="0%" stop-color="#F0E6D4"/>
-      <stop offset="50%" stop-color="#FFFDF9"/>
-      <stop offset="100%" stop-color="#E0D0B8"/>
-    </linearGradient>
-
-    <!-- Specular highlight -->
-    <linearGradient id="specular" x1="0.3" y1="0" x2="0.7" y2="1">
-      <stop offset="0%" stop-color="white" stop-opacity="0.55"/>
-      <stop offset="50%" stop-color="white" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Ring colors - vivid -->
-    <linearGradient id="ringPurple" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/>
-    </linearGradient>
-    <linearGradient id="ringPink" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#F472B6"/><stop offset="100%" stop-color="#E91E63"/>
-    </linearGradient>
-    <linearGradient id="ringGold" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#FCD34D"/>
-    </linearGradient>
-    <linearGradient id="ringRed" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FB7185"/><stop offset="100%" stop-color="#EF4444"/>
-    </linearGradient>
-
-    <!-- Filters -->
-    <filter id="softShadow" x="-20%" y="-10%" width="140%" height="150%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="18" result="s"/>
-      <feOffset dx="0" dy="20" in="s" result="o"/>
-      <feFlood flood-color="#0A0208" flood-opacity="0.5" result="c"/>
-      <feComposite in="c" in2="o" operator="in" result="shadow"/>
-      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="ringGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="innerShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="b"/>
-      <feOffset dx="0" dy="4" in="b" result="o"/>
-      <feComposite in="o" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="inner"/>
-      <feFlood flood-color="#8B7050" flood-opacity="0.3" result="color"/>
-      <feComposite in="color" in2="inner" operator="in" result="shadow"/>
-      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="shadow"/></feMerge>
-    </filter>
-
-    <!-- iOS superellipse clip -->
-    <clipPath id="clip">
-      <rect width="1024" height="1024" rx="224" ry="224"/>
-    </clipPath>
   </defs>
 
-  <g clip-path="url(#clip)">
-    <!-- Background layers -->
-    <rect width="1024" height="1024" fill="url(#bg)"/>
-    <rect width="1024" height="1024" fill="url(#bgGlow)"/>
-    <rect width="1024" height="1024" fill="url(#bgGlow2)"/>
+  <!-- Rounded square wine background (iOS icon shape) -->
+  <rect width="64" height="64" rx="14" ry="14" fill="url(#vl-bg)"/>
+  <rect width="64" height="64" rx="14" ry="14" fill="url(#vl-glow)"/>
 
-    <!-- ================================================ -->
-    <!-- WINE GLASS — smooth curves, realistic 3D         -->
-    <!-- ================================================ -->
-    <g filter="url(#softShadow)">
+  <!-- The chunky V — centered, with drop hanging below -->
+  <path
+    d="M 14 17
+       C 14 15.4, 15.4 14, 17.2 14
+       L 21.4 14
+       C 23 14, 24.2 15, 24.8 16.6
+       L 30.8 35
+       C 31 35.6, 31.4 36, 32 36
+       C 32.6 36, 33 35.6, 33.2 35
+       L 39.2 16.6
+       C 39.8 15, 41 14, 42.6 14
+       L 46.8 14
+       C 48.6 14, 50 15.4, 50 17
+       C 50 17.6, 49.9 18, 49.7 18.6
+       L 39.4 44
+       C 38.3 46.8, 35.4 48.6, 32 48.6
+       C 28.6 48.6, 25.7 46.8, 24.6 44
+       L 14.3 18.6
+       C 14.1 18, 14 17.6, 14 17 Z"
+    fill="url(#vl-v)"/>
 
-      <!-- === BOWL === -->
-      <!-- 3D depth layer (bottom edge thickness) -->
-      <path d="
-        M 290 260
-        C 280 260, 272 310, 278 380
-        C 286 470, 340 560, 420 610
-        C 460 636, 490 650, 512 656
-        C 534 650, 564 636, 604 610
-        C 684 560, 738 470, 746 380
-        C 752 310, 744 260, 734 260
-        L 734 278
-        C 744 278, 750 322, 744 388
-        C 736 474, 682 562, 602 612
-        C 562 638, 534 652, 512 658
-        C 490 652, 462 638, 422 612
-        C 342 562, 288 474, 280 388
-        C 274 322, 280 278, 290 278
-        Z
-      " fill="url(#bowlEdge)"/>
-
-      <!-- Bowl main face — smooth U shape -->
-      <path d="
-        M 290 254
-        C 280 254, 272 300, 278 370
-        C 286 460, 340 550, 420 600
-        C 460 626, 490 640, 512 646
-        C 534 640, 564 626, 604 600
-        C 684 550, 738 460, 746 370
-        C 752 300, 744 254, 734 254
-        Z
-      " fill="url(#bowlMain)" filter="url(#innerShadow)"/>
-
-      <!-- Specular highlight — curved shine on left bowl -->
-      <path d="
-        M 310 274
-        C 302 274, 298 310, 302 360
-        C 308 420, 340 480, 380 520
-        C 390 530, 396 534, 400 534
-        L 388 526
-        C 356 496, 328 440, 322 384
-        C 316 330, 320 290, 326 278
-        Z
-      " fill="url(#specular)"/>
-
-      <!-- Rim — elegant curved shine -->
-      <path d="M 310 260 C 380 238, 460 230, 512 228 C 564 230, 644 238, 714 260"
-        fill="none" stroke="white" stroke-width="4" opacity="0.45" stroke-linecap="round"/>
-
-      <!-- Gold rim line -->
-      <path d="M 322 266 C 390 246, 460 240, 512 238 C 564 240, 634 246, 702 266"
-        fill="none" stroke="#C5A55A" stroke-width="2.5" opacity="0.35" stroke-linecap="round"/>
-
-      <!-- === STEM === tapered cylinder -->
-      <!-- Stem depth -->
-      <path d="
-        M 500 648 C 496 648, 494 652, 494 658
-        L 492 768 C 492 778, 498 782, 506 782
-        L 518 782 C 526 782, 532 778, 532 768
-        L 530 658 C 530 652, 528 648, 524 648
-        L 524 666 C 528 666, 530 670, 530 676
-        L 532 778 C 532 788, 526 792, 518 792
-        L 506 792 C 498 792, 492 788, 492 778
-        L 494 676 C 494 670, 496 666, 500 666
-        Z
-      " fill="#C8B898"/>
-
-      <!-- Stem main face -->
-      <rect x="498" y="646" width="28" height="134" rx="14" fill="url(#stemGrad)"/>
-
-      <!-- Stem highlight -->
-      <rect x="507" y="652" width="6" height="122" rx="3" fill="white" opacity="0.2"/>
-
-      <!-- === BASE === smooth elliptical -->
-      <!-- Base depth -->
-      <ellipse cx="512" cy="800" rx="124" ry="30" fill="#C8B898"/>
-      <!-- Base main -->
-      <ellipse cx="512" cy="792" rx="120" ry="28" fill="url(#baseGrad)" filter="url(#innerShadow)"/>
-      <!-- Base top shine -->
-      <ellipse cx="512" cy="786" rx="80" ry="12" fill="white" opacity="0.18"/>
-      <!-- Base gold rim -->
-      <ellipse cx="512" cy="790" rx="96" ry="16" fill="none" stroke="#C5A55A" stroke-width="1.5" opacity="0.2"/>
-    </g>
-
-    <!-- ================================================ -->
-    <!-- TASTE RING — 4 glowing gradient arcs in the bowl -->
-    <!-- ================================================ -->
-
-    <!-- Ambient glow behind ring -->
-    <circle cx="512" cy="420" r="150" fill="none" stroke="#7C3AED" stroke-width="2" opacity="0.06"
-      filter="url(#ringGlow)"/>
-
-    <!-- Ring shadow -->
-    <g transform="translate(514, 428)" opacity="0.2">
-      <circle r="115" fill="none" stroke="#0A0208" stroke-width="26" stroke-linecap="round"/>
-    </g>
-
-    <!-- Ring arcs — gradient strokes with glow -->
-    <g transform="translate(512, 420)" filter="url(#ringGlow)">
-      <!-- Purple / Body — top-right (315° to 45°) -->
-      <path d="M 81.3,-81.3 A 115,115 0 0,1 81.3,81.3"
-        fill="none" stroke="url(#ringPurple)" stroke-width="24" stroke-linecap="round"/>
-
-      <!-- Pink / Sweetness — bottom-right (45° to 135°) -->
-      <path d="M 81.3,81.3 A 115,115 0 0,1 -81.3,81.3"
-        fill="none" stroke="url(#ringPink)" stroke-width="24" stroke-linecap="round"/>
-
-      <!-- Gold / Acidity — bottom-left (135° to 225°) -->
-      <path d="M -81.3,81.3 A 115,115 0 0,1 -81.3,-81.3"
-        fill="none" stroke="url(#ringGold)" stroke-width="24" stroke-linecap="round"/>
-
-      <!-- Red / Fruit — top-left (225° to 315°) -->
-      <path d="M -81.3,-81.3 A 115,115 0 0,1 81.3,-81.3"
-        fill="none" stroke="url(#ringRed)" stroke-width="24" stroke-linecap="round"/>
-    </g>
-
-    <!-- Ring specular highlights (white arcs on top half) -->
-    <g transform="translate(512, 416)" opacity="0.28">
-      <path d="M 81.3,-81.3 A 115,115 0 0,1 81.3,81.3"
-        fill="none" stroke="white" stroke-width="6" stroke-linecap="round"/>
-      <path d="M -81.3,-81.3 A 115,115 0 0,1 81.3,-81.3"
-        fill="none" stroke="white" stroke-width="6" stroke-linecap="round"/>
-    </g>
-
-    <!-- Center orb — glossy sphere -->
-    <circle cx="514" cy="426" r="14" fill="#1A0810" opacity="0.2"/>
-    <radialGradient id="orbGrad" cx="0.4" cy="0.35" r="0.6">
-      <stop offset="0%" stop-color="white" stop-opacity="0.7"/>
-      <stop offset="50%" stop-color="#F0E6D4" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#C5A55A" stop-opacity="0.15"/>
-    </radialGradient>
-    <circle cx="512" cy="420" r="12" fill="url(#orbGrad)"/>
-    <circle cx="509" cy="417" r="4" fill="white" opacity="0.6"/>
-
-  </g>
+  <!-- Gold drop below the V -->
+  <circle cx="32" cy="53.2" r="3.6" fill="url(#vl-drop)"/>
+  <!-- Small white highlight on drop -->
+  <ellipse cx="30.8" cy="52.2" rx="1" ry="0.7" fill="white" opacity="0.75"/>
 </svg>
